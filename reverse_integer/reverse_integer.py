@@ -10,9 +10,13 @@ return 0. Assume the environment does not allow you to store 64-bit integers (si
 def reverse(num):
         x = str(num)[::-1]
         if num<0:
-            if -int(x.translate({ord('-'): None})) >=(-2**31):
-                return -int(x.translate({ord('-'): None}))
+            if -int(x.replace('-', ''))>=(-2**31):
+                return -int(x.replace('-', ''))
         elif int(x) <= 2**31 -1: 
             return int(x)
         return 0
 
+print(reverse(-123450))
+##Solution 2: Using % operator to reverse the string. 
+def reverse(num): 
+	pass
