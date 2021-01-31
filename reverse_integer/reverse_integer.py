@@ -4,10 +4,9 @@ x causes the value to go outside the signed 32-bit integer range [-231, 231 - 1]
 return 0. Assume the environment does not allow you to store 64-bit integers (signed or unsigned)."""
 
 
-#Solution 1: turning int into reversed string. If negative number, I have to 
-#remove the '-' sign from the string and make the integer of the reversed 
-#string negative at the end. 
-def reverse(num):
+#Solution 1: turning int into reversed string. If it is a negative number, I have to 
+#remove the '-' sign from the string and make the integer  of the string negative again
+#after reversing it. 
         x = str(num)[::-1]
         if num<0:
             if -int(x.replace('-', ''))>=(-2**31):
@@ -17,6 +16,3 @@ def reverse(num):
         return 0
 
 print(reverse(-123450))
-##Solution 2: Using % operator to reverse the string. 
-def reverse(num): 
-	pass
