@@ -2,14 +2,6 @@
 
 If there is no common prefix, return an empty string """
 
-# test strings: 
-string1= ["flower", "flo", "float", "flow rider", "flopple", "floximationsynth"]
-string2= ["aa", "ab"]
-string3 = ["aa", "apple", "ab"]
-string4 = ["a", "b"]
-string5 =[]
-string6 = ["flower","flow","flight"]
-string7 = ["car", "cur", "cur"]
 
 
 """
@@ -26,25 +18,31 @@ item in the shortest string until we find a common prefix:
 6. if there are no common prefixes, return an empty string. 
 
 """
-def longestCommonPrefix (strs): 
-    answer = ""
-    if len(strs) ==0: 
+def longestCommonPrefix(strs): 
+    answer =""
+    if len(strs)==0: 
         return answer
-    short = sorted(strs, key=len)[0]
     count = 0
-    for i in range(len(short)):
-        for j in range(len(strs)): 
-            if strs[j][i] == short[i]:
-                count+=1
-            if count == len(strs): 
-                answer += short[i]
-            if strs[j][i]!= short[i]: 
-                return answer
-        count = 0
-            
-
+    short = sorted(strs, key=len)[0]
+    while len(short) != 0: 
+        for i in strs: 
+            if i[0:len(short)] == short: 
+                count +=1
+        if count == len(strs): 
+            answer = short
+            break
+        else: 
+            count = 0
+            short = short[:-1]
     return answer
 
+string1= ["flower", "flo", "float", "flow rider", "flopple", "floximationsynth"]
+string2= ["aa", "ab"]
+string3 = ["aa", "apple", "ab"]
+string4 = ["a", "b"]
+string5 =[]
+string6 = ["flower","flow","flight"]
+string7 = ["car", "cur", "cur"]
 
 print(longestCommonPrefix(string1))
 print(longestCommonPrefix(string2))
@@ -84,6 +82,13 @@ def longestCommonPrefix (strs):
             
 
     return answer
+string1= ["flower", "flo", "float", "flow rider", "flopple", "floximationsynth"]
+string2= ["aa", "ab"]
+string3 = ["aa", "apple", "ab"]
+string4 = ["a", "b"]
+string5 =[]
+string6 = ["flower","flow","flight"]
+string7 = ["car", "cur", "cur"]
 
 print(longestCommonPrefix(string1))
 print(longestCommonPrefix(string2))
