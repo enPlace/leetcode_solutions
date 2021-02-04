@@ -2,28 +2,51 @@
 
 If there is no common prefix, return an empty string """
 
- # My first thought was to take the shortest string, and check each string 
- # in the list to see if the first x letters of each string matched the shortest string. 
- # If not, take one letter off the end of the shortest string, and repeat the process.
- # If there is a common prefix, we  will arrive at it at some point. Otherwise, return 
- # an empty string. This doesn't work, however, if the lengths of all the words are 
- # the same. 
+# test strings: 
+string1= ["flower", "flo", "float", "flow rider", "flopple", "floximationsynth"]
+string2= ["aa", "ab"]
+string3 = ["aa", "apple", "ab"]
+string4 = ["a", "b"]
+string5 =[]
 
-def longestCommonPrefix(string): 
-	answer = ""
-	count = 0
-	ind = string.index(min(string, key=len))
-	while len(string[ind]) != 0:
-		for i in string: 
-			if i[0: len(string[ind])] == string[ind]: 
-				count+=1
-		if count==len(string):
-			answer = string[ind]
-			break
-		else: 
-			count = 0
-			string[ind]= string[ind].replace(string[ind][-1], "")
 
-	return answer
+"""
+One way to do this is to take the shortest string and work backwards, removing the last 
+item in the string until we find a common prefix: 
 
-print(longestCommonPrefix(string))
+*if empty string, return "". Otherwise: 
+1. sort the list by length
+2. check to see if the shortest string is a prefix for the rest 
+   of the strings.
+3. if yes, the shortest string is the answer
+4. if no, take the last item off the shortest string
+5. repeat until we get a result. 
+6. if there are no common prefixes, return an empty string. 
+
+"""
+def longestCommonPrefix(strs): 
+    answer =""
+    if len(strs)==0: 
+        return answer
+    count = 0
+    short = sorted(strs, key=len)[0]
+    while len(short) != 0: 
+        for i in strs: 
+            if i[0:len(short)] == short: 
+                count +=1
+        if count == len(strs): 
+            answer = short
+            break
+        else: 
+            count = 0
+            short = short[:-1]
+    return answer
+
+
+print(longestCommonPrefix(string1))
+print(longestCommonPrefix(string2))
+print(longestCommonPrefix(string3))
+print(longestCommonPrefix(string4))
+print(longestCommonPrefix(string5))
+
+
