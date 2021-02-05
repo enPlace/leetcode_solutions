@@ -1,6 +1,6 @@
  20. Valid Parentheses 
  https://leetcode.com/problems/valid-parentheses/
- 
+
 
  """
  Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
@@ -37,8 +37,8 @@ this process until we get to the end of the string.
 
 For a string like ([)], we would get to the closing bracket ")" first. Our stack
 would at that point be: "([". 
-Because ")" doesnt match the closing braket at the top of the stack ("[",), 
-it would be an invalid string. 
+Because ")" doesnt match the closing braket at the top of the stack, 
+"([)]" would be an invalid string. 
 
 The other instance that the string would be invalid would be in the case where
 there were more opening brackets than closing brackets. After iterating through 
