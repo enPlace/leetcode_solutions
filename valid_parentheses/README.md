@@ -1,3 +1,17 @@
+ 20. Valid Parentheses 
+ https://leetcode.com/problems/valid-parentheses/
+ 
+
+ """
+ Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+
+An input string is valid if:
+
+    Open brackets must be closed by the same type of brackets.
+    Open brackets must be closed in the correct order.
+
+"""
+
  
  A straightforward way to do this is to use a stack data structure. 
  A stack is a linear data structure which follows a particular order in which the
